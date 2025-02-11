@@ -1,4 +1,4 @@
-import { Component, ChangeEvent } from 'react'
+import { ChangeEvent } from 'react'
 import './search-box.styles.css'
 
 interface SearchBoxProps {
@@ -7,20 +7,14 @@ interface SearchBoxProps {
     className: string;
 }
 
-class SearchBox extends Component<SearchBoxProps> {
-
-       render() {
+const SearchBox = ({onChangeHandler, placeholder, className} : SearchBoxProps) => {  
         return(
-            <>
                 <input 
                     type="search" 
-                    className={`search-box ${this.props.className}`}
-                    placeholder={this.props.placeholder}
-                    onChange={this.props.onChangeHandler} />
-            </>
+                    className={`search-box ${className}`}
+                    placeholder={placeholder}
+                    onChange={onChangeHandler} />
         )
-
-    }
 }
 
 export default SearchBox;
